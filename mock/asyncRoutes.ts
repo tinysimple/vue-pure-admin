@@ -324,16 +324,23 @@ export default defineFakeRoute([
   {
     url: "/get-async-routes",
     method: "get",
-    response: () => {
+    response: ({ headers }) => {
+      let isAdmin = false;
+      if (headers.authorization === "Bearer eyJhbGciOiJIUzUxMiJ9.admin") {
+        isAdmin = true;
+      }
       return {
         success: true,
-        data: [
-          systemManagementRouter,
-          systemMonitorRouter,
-          permissionRouter,
-          frameRouter,
-          tabsRouter
-        ]
+        // 注意：复现条件中，非管理员也要返回一个动态路由菜单，以保证src/router/utils.ts中的handleAsyncRoutes函数进入else逻辑
+        data: isAdmin
+          ? [
+              systemManagementRouter,
+              systemMonitorRouter,
+              permissionRouter,
+              frameRouter,
+              tabsRouter
+            ]
+          : [tabsRouter]
       };
     }
   }

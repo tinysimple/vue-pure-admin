@@ -176,6 +176,8 @@ function handleAsyncRoutes(routeList) {
         }
       }
     );
+    console.log("[handleAsyncRoutes]", router.options.routes);
+    console.log("[handleAsyncRoutes][getRoutes]", router.getRoutes());
     usePermissionStoreHook().handleWholeMenus(routeList);
   }
   if (!useMultiTagsStoreHook().getMultiTagsCache) {

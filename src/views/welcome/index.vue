@@ -8,6 +8,7 @@ import { useRenderFlicker } from "@/components/ReFlicker";
 import { ChartBar, ChartLine, ChartRound } from "./components/charts";
 import Segmented, { type OptionsType } from "@/components/ReSegmented";
 import { chartData, barChartData, progressData, latestNewsData } from "./data";
+import { router } from "@/router";
 
 defineOptions({
   name: "Welcome"
@@ -28,6 +29,17 @@ const optionsBasis: Array<OptionsType> = [
 
 <template>
   <div>
+    <el-row :gutter="24" justify="space-around">
+      <re-col class="mb-[18px]">
+        <el-card
+          class="line-card"
+          shadow="never"
+          @click="router.push({ path: '/permission/page/index' })"
+        >
+          <el-text class="mx-8" type="primary">去权限页面</el-text>
+        </el-card>
+      </re-col>
+    </el-row>
     <el-row :gutter="24" justify="space-around">
       <re-col
         v-for="(item, index) in chartData"
