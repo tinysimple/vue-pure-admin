@@ -1,0 +1,1 @@
+import{t as a}from"./data-DAe6mwh_.js";import{d as n,r,g as p,o as s,u as l}from"./index-BbxVbw8z.js";const i=n({__name:"customIndex",setup(c){const o=[{type:"index",index:e=>e*2},{label:"日期",prop:"date"},{label:"姓名",prop:"name"},{label:"地址",prop:"address"}];return(e,m)=>{const t=r("pure-table");return s(),p(t,{data:l(a),columns:o},null,8,["data"])}}});export{i as _};
